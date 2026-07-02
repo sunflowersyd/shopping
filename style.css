@@ -216,6 +216,19 @@ button:hover {
     background-color: deeppink;
     transform: scale(1.05);
 }
+
+.delete-button {
+    background-color: #ef4444;
+}
+
+.delete-button:hover {
+    background-color: #dc2626;
+}
+
+.item-info {
+    flex: 1;
+}
+
 @media (max-width: 900px) {
     .sidebar {
         position: relative;
