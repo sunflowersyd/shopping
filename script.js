@@ -116,6 +116,7 @@ const createItemCard = (item) => {
 
       <button class="favorite-button">${favoriteLabel}</button>
       <button class="purchased-button">${purchasedLabel}</button>
+      <button class="delete-button">🗑 Delete Item</button>
     </div>
   `;
 
@@ -148,6 +149,18 @@ const createItemCard = (item) => {
         purchased: !isPurchased,
       };
       saveWishlistState(wishlistState);
+    });
+  }
+
+  const deleteButton = card.querySelector(".delete-button");
+  if (deleteButton) {
+    deleteButton.addEventListener("click", (event) => {
+      event.preventDefault();
+      wishlistItems = wishlistItems.filter((wishlistItem) => wishlistItem.id !== item.id);
+      delete wishlistState[item.id];
+      saveWishlistItems(wishlistItems);
+      saveWishlistState(wishlistState);
+      renderWishlist(currentSearchTerm);
     });
   }
 
